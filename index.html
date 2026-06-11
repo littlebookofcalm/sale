@@ -376,6 +376,53 @@ footer {
   footer { flex-direction: column; align-items: flex-start; }
   .footer-right { align-items: flex-start; }
 }
+
+/* ─── LIGHTBOX ─── */
+.card-img { cursor: zoom-in; }
+
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15,15,18,0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+#lightbox.open { display: flex; }
+
+#lightbox img {
+  max-width: min(90vw, 1000px);
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+}
+
+#lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.75rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+#lightbox-close:hover { background: rgba(255,255,255,0.2); }
 </style>
 </head>
 <body>
@@ -398,7 +445,7 @@ footer {
     </div>
   </div>
   <div class="hero-bottom">
-    <p class="hero-desc">We're leaving brooklyn, but lucky for you, an opportunity for some great furniture and things!</p>
+    <p class="hero-desc">Eleven items from a home that's relocating. Furniture, speakers, a never-touched litter box, and a sofa with a very good past. All priced to move.</p>
   </div>
 </section>
 
@@ -412,7 +459,7 @@ footer {
       <div class="card-body">
         <div class="card-cat">Storage</div>
         <div class="card-name">Sektion / Maximera Tall Cabinet</div>
-        <div class="card-desc">30x24x80 IKEA cabinet system with 5 drawers and 3 shelves - doors are dark green, less than a year old. Better-looking than most IKEA storage gets.</div>
+        <div class="card-desc">30x24x80 IKEA cabinet system with 5 drawers and 3 shelves — doors are dark green, less than a year old.</div>
         <div class="card-footer">
           <div><span class="card-price grad">$400</span><span class="card-price-note">OBO</span></div>
           <span class="tag tag-loved">Green</span>
@@ -442,7 +489,7 @@ footer {
       <div class="card-body">
         <div class="card-cat">Dining</div>
         <div class="card-name">Teak &amp; Concrete Round Table</div>
-        <div class="card-desc">Solid concrete top, warm teak legs. Outdoor table that fits more than you'd think, 52" round, all-season ready.</div>
+        <div class="card-desc">Solid concrete top, warm teak legs. Outdoor table that fits more than you'd think — 52" round, all-season ready.</div>
         <div class="card-footer">
           <div><span class="card-price grad">$800</span><span class="card-price-note">OBO</span></div>
           <span class="tag tag-wow">Statement</span>
@@ -472,7 +519,7 @@ footer {
       <div class="card-body">
         <div class="card-cat">Dining</div>
         <div class="card-name">IKEA Drop Leaf Dining Table</div>
-        <div class="card-desc">Small, smart, endlessly practical. Folds flat when you don't need it, tiny hole in the top you'll barely notice. The best small-apartment dining table IKEA makes.</div>
+        <div class="card-desc">Small, smart, endlessly practical. Folds flat when you don't need it — tiny hole in the top you'll barely notice.</div>
         <div class="card-footer">
           <div><span class="card-price grad">$80</span><span class="card-price-note">OBO</span></div>
           <span class="tag tag-special">Space-saver</span>
@@ -487,7 +534,7 @@ footer {
       <div class="card-body">
         <div class="card-cat">Audio</div>
         <div class="card-name">Sony Speakers</div>
-        <div class="card-desc">Sony SS-B3000 Bookshelf Speakers, good condition, great sound</div>
+        <div class="card-desc">Sony SS-B3000 Bookshelf Speakers, good condition, great sound.</div>
         <div class="card-footer">
           <div><span class="card-price grad">$40</span><span class="card-price-note">OBO</span></div>
           <span class="tag tag-special">Sony</span>
@@ -502,7 +549,7 @@ footer {
       <div class="card-body">
         <div class="card-cat">Pets</div>
         <div class="card-name">Modkat Litter Box</div>
-        <div class="card-desc">Never used (our rescue was too big for it!). Have used these for years, great litter boxes!</div>
+        <div class="card-desc">Never used (our rescue was too big for it!). Have used these for years — great litter boxes.</div>
         <div class="card-footer">
           <div><span class="card-price grad">$65</span><span class="card-price-note">OBO</span></div>
           <span class="tag tag-new">Never used</span>
@@ -547,7 +594,7 @@ footer {
       <div class="card-body">
         <div class="card-cat">Home</div>
         <div class="card-name">Dyson Ball Vacuum</div>
-        <div class="card-desc">Dyson Ball Animal 3 Extra Upright Vacuum with 5 accessories - Copper/Silver. Serious suction, handles every floor type. </div>
+        <div class="card-desc">Dyson Ball Animal 3 Extra Upright with 5 accessories, Copper/Silver. Serious suction, handles every floor type.</div>
         <div class="card-footer">
           <div><span class="card-price grad">$200</span><span class="card-price-note">OBO</span></div>
           <span class="tag tag-wow">Dyson</span>
@@ -562,7 +609,7 @@ footer {
       <div class="card-body">
         <div class="card-cat">Living Room</div>
         <div class="card-name">Vaughn Leather Apartment Sofa</div>
-        <div class="card-desc">A Vaughn leather sofa scaled for apartments. Thoroughly loved, super comfy - bit of scratches on the sides. Good leather only gets better.</div>
+        <div class="card-desc">A Vaughn leather sofa scaled for apartments. Thoroughly loved, super comfy — bit of scratches on the sides. Good leather only gets better.</div>
         <div class="card-footer">
           <div><span class="card-price grad">$550</span><span class="card-price-note">OBO</span></div>
           <span class="tag tag-loved">Loved</span>
@@ -587,6 +634,37 @@ footer {
     </div>
   </footer>
 </div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close" aria-label="Close">&#x2715;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbClose = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.card-img').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
 
 </body>
 </html>
